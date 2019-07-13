@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "##          REALTIME WEB SERVICE EXAMPLE                ##\n\n# For R Server 9.0, load mrsdeploy package on R Server     \nlibrary(mrsdeploy)\n\n##########################################################\n#   Create/Test Logistic Regression Model with rxLogit   #\n##########################################################\n\n# Create logistic regression model \n# using rxLogit modeling function from RevoScaleR package\n# and the Rpart `kyphosis` dataset available to all R users\nkyphosisModel <- rxLogit(Kyphosis ~ Age, data=kyphosis)\n\n# Test the model locally\ntestData <- data.frame(Kyphosis=c(\"absent\"), Age=c(71), Number=c(3), Start=c(5))\nrxPredict(kyphosisModel, data = testData)  # Kyphosis_Pred: 0.1941938\n\n##########################################################\n#            Log into Microsoft R Server                 #\n##########################################################\n\n# Use `remoteLogin` to authenticate with R Server using \n# the local admin account. Use session = false so no \n# remote R session started\n# REMEMBER: replace with the login info for your organization\nremoteLogin(\"http://localhost:12800\", \n            username = \"admin\", \n            password = \"Pa$$w0rd\",\n            session = FALSE)\n\n##########################################################\n#    Publish Kyphosis Model as a Realtime Service        #\n##########################################################\n\n# Generate a unique serviceName for demos \n# and assign to variable serviceName\nserviceName <- paste0(\"kyphosis\", round(as.numeric(Sys.time()), 0))\n\n# Publish as service using publishService() function. \n# Use the variable name for the service and version `v1.0`\n# Assign service to the variable `realtimeApi`.\nrealtimeApi <- publishService(\n     serviceType = \"Realtime\",\n     name = serviceName,\n     code = NULL,\n     model = kyphosisModel,\n     v = \"v1.0\",\n     alias = \"kyphosisService\"\n)\n\n##########################################################\n#           Consume Realtime Service in R                #\n##########################################################\n\n# Print capabilities that define the service holdings: service \n# name, version, descriptions, inputs, outputs, and the \n# name of the function to be consumed\nprint(realtimeApi$capabilities())\n\n# Consume service by calling function contained in this service\nrealtimeResult <- realtimeApi$kyphosisService(testData)\n\n# Print response output\nprint(realtimeResult$outputParameters) # 0.1941938   \n\n##########################################################\n#         Get Service-specific Swagger File in R         #\n##########################################################\n\n# During this authenticated session, download the  \n# Swagger-based JSON file that defines this service\nrtSwagger <- realtimeApi$swagger()\ncat(rtSwagger, file = \"realtimeSwagger.json\", append = FALSE)\n\n# Share Swagger-based JSON with those who need to consume it\n",
+    "created" : 1501789633052.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "835355038",
+    "id" : "3BC7E7C6",
+    "lastKnownWriteTime" : 1501335632,
+    "last_content_update" : 1501335632,
+    "path" : "C:/Users/Jamey/OneDrive/Documents/Statistics/R/Into-to-R-Session/Advanced-R-Services/RServerExampleWebService-rxKyphosisModel.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

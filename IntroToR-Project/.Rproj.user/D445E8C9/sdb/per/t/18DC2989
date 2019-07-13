@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# Path for (2017)\n# C:\\Program Files\\Microsoft SQL Server\\MSSQL14.MSSQLSERVER\\R_SERVICES\\bin\nlib.SQL <- \"C:\\\\Program Files\\\\Microsoft SQL Server\\\\MSSQL14.MSSQLSERVER\\\\R_SERVICES\\\\library\"\ninstall.packages(\"e1071\", lib = lib.SQL)  \n ",
+    "created" : 1501332720306.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "1885348353",
+    "id" : "18DC2989",
+    "lastKnownWriteTime" : 1496517791,
+    "last_content_update" : 1496517791,
+    "path" : "C:/Users/Jamey/OneDrive/Documents/Statistics/R/Into-to-R-Session/install_r_package_in_SQLServer2016+.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

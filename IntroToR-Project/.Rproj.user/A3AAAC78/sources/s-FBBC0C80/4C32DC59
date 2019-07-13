@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563027794846.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "4C32DC59",
+    "lastKnownWriteTime" : 1534015150,
+    "last_content_update" : 1534015150,
+    "path" : "~/Statistics/R/Into-to-R-Session/IntroToR-Project/Into2R.R",
+    "project_path" : "Into2R.R",
+    "properties" : {
+        "cursorPosition" : "35,0",
+        "disableDependencyDiscovery" : "1",
+        "scrollLine" : "19"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
